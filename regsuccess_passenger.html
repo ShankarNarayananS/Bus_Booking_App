@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <script>
+
+            function show_login() {
+
+                
+
+
+                document.getElementById("to_hide").style.display = "none";
+                document.getElementById("show_login_details").innerHTML = "Hello "+localStorage.getItem('user_name_passenger')+", your OTP for login is "+localStorage.getItem('OTP_for_login_passenger');
+
+            }
+
+
+
+
+        </script>
+
+        <title>Verify email</title>
+        <link rel="title icon" type="image/x-icon" href="favicon.ico" />
+         <!-- Bootstrap -->
+        <link href = "../style/css/bootstrap.min.css" rel = "stylesheet">
+    </head>
+    <body>
+        <div class="container jumbotron" style="margin-top:50px;border-radius:10px;">
+    <div class="jumbotron"> 
+        <h1>Welcome.</h1>
+        <br>
+        <h2>We are honoured to have you on board</h2>
+        <br>
+        <h2>Let's get started</h2>
+        
+        <h2 id="to_hide" onclick="show_login()">Click here to get your login details</h2> 
+        <br>
+
+        <h2 id="show_login_details"></h2>
+        <br>
+        
+        <p>
+            <a class="btn btn-primary btn-lg" role="button" href="./register_site_passenger.html">Back to Login</a>
+        </p>
+    </div>
+
+</div>
+    </body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+    <title></title>
+    <!-- Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta-Tags -->
+    <!-- Index-Page-CSS -->
+    <link rel="stylesheet" href="./css2/style.css" type="text/css" media="all">
+    <!-- //Custom-Stylesheet-Links -->
+    <!--fonts -->
+    <link
+        href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i"
+        rel="stylesheet">
+    <!-- //fonts -->
+</head>
+
+<body onload="onLoaderFunc()">
+    <script src='./jquery.min.js'></script>
+    
+    <script>
+        (function () {
+            if (typeof _bsa !== 'undefined' && _bsa) {
+                // format, zoneKey, segment:value, options
+                _bsa.init('flexbar', 'CKYI627U', 'placement:w3layoutscom');
+            }
+        })();
+    </script>
+    <script>
+        (function () {
+            if (typeof _bsa !== 'undefined' && _bsa) {
+                // format, zoneKey, segment:value, options
+                _bsa.init('fancybar', 'CKYDL2JN', 'placement:demo');
+            }
+        })();
+    </script>
+    <script>
+        (function () {
+            if (typeof _bsa !== 'undefined' && _bsa) {
+                // format, zoneKey, segment:value, options
+                _bsa.init('stickybox', 'CKYI653J', 'placement:w3layoutscom');
+            }
+        })();
+    </script>
+    <!--<script>(function(v,d,o,ai){ai=d.createElement("script");ai.defer=true;ai.async=true;ai.src=v.location.protocol+o;d.head.appendChild(ai);})(window, document, "//a.vdo.ai/core/w3layouts_V2/vdo.ai.js?vdo=34");</script>-->
+    <div id="codefund">
+        <!-- fallback content -->
+    </div>
+    <script src="./funder.js" async="async"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src='https://www.googletagmanager.com/gtag/js?id=UA-149859901-1'></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-149859901-1');
+    </script>
+
+    <script>
+        window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
+        ga('create', 'UA-149859901-1', 'demo.w3layouts.com');
+        ga('require', 'eventTracker');
+        ga('require', 'outboundLinkTracker');
+        ga('require', 'urlChangeTracker');
+        ga('send', 'pageview');
+    </script>
+    <script async src='./autotrack.js'></script>
+
+
+
+    </div>
+
+    <!---728x90--->
+
+    <h1>Bus Seat Selection</h1>
+    <div class="container">
+
+        <div class="w3ls-reg">
+            <!-- input fields -->
+            <div class="inputForm">
+                <h2>fill the required details below and select your seats</h2>
+                <div class="mr_agilemain">
+                    <div class="agileits-left">
+                        <label> Name
+                            <span>*</span>
+                        </label>
+                        <input placeholder="eg.John" type="text" id="Username" required>
+                    </div>
+                    <div class="agileits-right">
+                        <label> Number of Seats
+                            <span>*</span>
+                        </label>
+                        <input placeholder="eg.3" type="number" id="Numseats" required min="1" max="10">
+                    </div>
+                    <div class="agileits-left">
+                        <label> DESTINATION
+                            <span>*</span>
+
+                        </label>
+                        <input placeholder="eg.MADURAI" type="text" id="Destination" required>
+                    </div>
+                </div>
+                <button onclick="takeData()">Start Selecting</button>
+            </div>
+            <!-- //input fields -->
+            <!---728x90--->
+            <!-- seat availabilty list -->
+            <ul class="seat_w3ls">
+                <li class="smallBox greenBox">Selected Seat</li>
+
+
+
+                <li class="smallBox emptyBox">Empty Seat</li>
+            </ul>
+            <!-- seat availabilty list -->
+            <!-- seat layout -->
+            <div class="seatStructure txt-center" style="overflow-x:auto;">
+                <table id="seatsBlock">
+                    <p id="notification"></p>
+                    <tr>
+                        <td></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td></td>
+                        <td>3</td>
+
+
+                    </tr>
+                    <tr>
+                        <td>A</td>
+                        <td>
+                            <input type="checkbox" class="seats" value="A1">
+                        </td>
+                        <td>
+                            <input type="checkbox" class="seats" value="A2">
+                        </td>
+
+                        <td></td>
+
+
+                        <td>
+                            <input type="checkbox" class="seats" value="A3">
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>B</td>
+                        <td>
+                            <input type="checkbox" class="seats" value="B1">
+                        </td>
+                        <td>
+                            <input type="checkbox" class="seats" value="B2">
+                        </td>
+
+                        <td></td>
+                        <td>
+                            <input type="checkbox" class="seats" value="B3">
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>C</td>
+                        <td>
+                            <input type="checkbox" class="seats" value="C1">
+                        </td>
+                        <td>
+                            <input type="checkbox" class="seats" value="C2">
+                        </td>
+
+                        <td></td>
+                        <td>
+                            <input type="checkbox" class="seats" value="C3">
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>E</td>
+                        <td>
+                            <input type="checkbox" class="seats" value="E1">
+                        </td>
+                        <td>
+                            <input type="checkbox" class="seats" value="E2">
+                        </td>
+
+                        <td></td>
+                        <td>
+                            <input type="checkbox" class="seats" value="E3">
+                        </td>
+
+                    </tr>
+
+                    <tr class="seatVGap"></tr>
+
+                    <tr>
+                        <td>F</td>
+                        <td>
+                            <input type="checkbox" class="seats" value="F1">
+                        </td>
+                        <td>
+                            <input type="checkbox" class="seats" value="F2">
+                        </td>
+
+                        <td></td>
+                        <td>
+                            <input type="checkbox" class="seats" value="F3">
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>G</td>
+                        <td>
+                            <input type="checkbox" class="seats" value="G1">
+                        </td>
+                        <td>
+                            <input type="checkbox" class="seats" value="G2">
+                        </td>
+
+                        <td></td>
+                        <td>
+                            <input type="checkbox" class="seats" value="G3">
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>H</td>
+                        <td>
+                            <input type="checkbox" class="seats" value="H1">
+                        </td>
+                        <td>
+                            <input type="checkbox" class="seats" value="H2">
+                        </td>
+
+                        <td></td>
+                        <td>
+                            <input type="checkbox" class="seats" value="H3">
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>I</td>
+                        <td>
+                            <input type="checkbox" class="seats" value="I1">
+                        </td>
+                        <td>
+                            <input type="checkbox" class="seats" value="I2">
+                        </td>
+
+                        <td></td>
+                        <td>
+                            <input type="checkbox" class="seats" value="I3">
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>J</td>
+                        <td>
+                            <input type="checkbox" class="seats" value="J1">
+                        </td>
+                        <td>
+                            <input type="checkbox" class="seats" value="J2">
+                        </td>
+
+                        <td></td>
+                        <td>
+                            <input type="checkbox" class="seats" value="J3">
+                        </td>
+
+                    </tr>
+                </table>
+
+                <div class="screen">
+                    <h2 class="wthree">Screen this way</h2>
+                </div>
+                <button onclick="updateTextArea()">Confirm Selection</button>
+
+            </div>
+            <!-- //seat layout -->
+            <!-- details after booking displayed here -->
+            <div class="displayerBoxes txt-center" style="overflow-x:auto;">
+                <table class="Displaytable w3ls-table" width="100%">
+                    <tr>
+                        <th>Name</th>
+                        <th>Number of Seats</th>
+                        <th>Seats</th>
+                        <th>Destination</th>
+                        <th>Total Price</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <textarea id="nameDisplay"></textarea>
+                        </td>
+                        <td>
+                            <textarea id="NumberDisplay"></textarea>
+                        </td>
+                        <td>
+                            <textarea id="seatsDisplay"></textarea>
+                        </td>
+                        <td>
+                            <textarea id="DestinationDisplay"></textarea>
+                        </td>
+                        <td>
+                            <textarea id="PriceDisplay"></textarea>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+            <!-- //details after booking displayed here -->
+            <button onclick="confirm_details_proceed()">I confirm these details are correct</button>
+        </div>
+    </div>
+    <!---728x90--->
+
+    <!-- js -->
+    <script src="./js2/jquery-2.2.3.min.js"></script>
+    <!-- //js -->
+    <!-- script for seat selection -->
+    <script>
+        function onLoaderFunc() {
+            $(".seatStructure *").prop("disabled", true);
+            $(".displayerBoxes *").prop("disabled", true);
+        }
+
+        function takeData() {
+            if (($("#Username").val().length == 0) || ($("#Numseats").val().length == 0)) {
+                alert("Please Enter your Name and Number of Seats");
+            } else {
+                $(".inputForm *").prop("disabled", true);
+                $(".seatStructure *").prop("disabled", false);
+                document.getElementById("notification").innerHTML =
+                    "<b style='margin-bottom:0px;background:#ff9800;letter-spacing:1px;'>Please Select your Seats </b>";
+            }
+        }
+
+
+        function updateTextArea() {
+
+            if ($("input:checked").length == ($("#Numseats").val())) {
+                $(".seatStructure *").prop("disabled", true);
+
+                var allNameVals = [];
+                var allNumberVals = [];
+                var allSeatsVals = [];
+                var allDestinationVals = [];
+                var allPriceVals = [];
+
+                //Storing in Array
+                allNameVals.push($("#Username").val());
+                allNumberVals.push($("#Numseats").val());
+                $('#seatsBlock :checked').each(function () {
+                    allSeatsVals.push($(this).val());
+                });
+                allDestinationVals.push($("#Destination").val());
+
+
+                var price = 600 * $("#Numseats").val();
+
+
+                allPriceVals.push("Rs " + price);
+
+                //Displaying 
+                $('#nameDisplay').val(allNameVals);
+                $('#NumberDisplay').val(allNumberVals);
+                $('#seatsDisplay').val(allSeatsVals);
+                $('#DestinationDisplay').val(allDestinationVals);
+                $('#PriceDisplay').val(allPriceVals);
+
+
+                localStorage.setItem("name_booked_passenger", JSON.stringify(allNameVals))
+            localStorage.setItem("seats_booked_passenger", JSON.stringify(allSeatsVals))
+            localStorage.setItem("seats_count_passenger", JSON.stringify(allNumberVals))
+
+            localStorage.setItem("destination_passenger", JSON.stringify(allDestinationVals))
+            localStorage.setItem("price_passenger", JSON.stringify(allPriceVals))
+
+            function generateOTP() {
+
+                // Declare a string variable  
+                // which stores all string 
+                var string = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                let OTP = '';
+
+                // Find the length of string 
+                var len = string.length;
+                for (let i = 0; i < 6; i++) {
+                    OTP += string[Math.floor(Math.random() * len)];
+                }
+                return OTP;
+            }
+
+            var OTP_for_booking_passenger=generateOTP();
+
+
+            localStorage.setItem("booking_id_passenger", OTP_for_booking_passenger)
+
+
+               
+
+
+
+            } else {
+                alert("Please select " + ($("#Numseats").val()) + " seats")
+            }
+        }
+
+
+        function myFunction() {
+            alert($("input:checked").length);
+        }
+
+        function confirm_details_proceed() {
+
+
+            
+            window.open("./dashboard_passenger.html")
+
+
+        }
+
+
+
+
+        /*
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+        */
+
+
+        $(":checkbox").click(function () {
+            if ($("input:checked").length == ($("#Numseats").val())) {
+                $(":checkbox").prop('disabled', true);
+                $(':checked').prop('disabled', false);
+            } else {
+                $(":checkbox").prop('disabled', false);
+            }
+        });
+    </script>
+    <!-- //script for seat selection -->
+
+</body>
+
+
+
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 1s;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+</style>
+
+<script>
+    document.getElementById("sendtoadmin").style.display="none";
+
+
+    function openCity(evt, cityName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
+    
+    
+    
+      
+      var bus_status=localStorage.getItem("status_busowner");
+      document.getElementById("status_message").innerHTML="Hello "+localStorage.getItem("user_name_busowner")+", as of now your status is "+bus_status+". If this is not what you were expecting please contact the site admin by pressing the button ";
+      document.getElementById("sendtoadmin").style.display="block" // not needed by still might be useful 
+
+      document.getElementById("mybuses_message").innerHTML=localStorage.getItem("license_plate_busowner");
+
+      document.getElementById("totalcapacity_message").innerHTML=localStorage.getItem("capacity_busowner");
+
+      
+
+
+    }
+    
+    function send_message() {
+
+        var message={
+            name:localStorage.getItem('user_name_busowner'),
+            message:"Hi there, it seems there is a problem with my status. Please look into it"
+        }
+
+        localStorage.setItem('message_admin',JSON.stringify(message));
+
+        alert("The message has been sent. Please wait until further notice.");
+
+    }
+
+    </script>
+</head>
+<body>
+
+<h3 id="welcome"></h3>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Status')">Status</button>
+  <button class="tablinks" onclick="openCity(event, 'MyBuses')">My Buses</button>
+  <button class="tablinks" onclick="openCity(event, 'TotalCapacity')">Total Capacity</button>
+  
+  <button onclick="window.location.href='./index.html';">
+    Log Out
+  </button>
+</div>
+
+<div id="Status" class="tabcontent">
+  <h3 id="status_message"></h3>
+  <button id="sendtoadmin" type="button" onclick="send_message()">NOTIFY ADMIN</button>
+
+</div>
+
+<div id="MyBuses" class="tabcontent">
+  <h3 id="mybuses_message"></h3>
+   
+</div>
+
+<div id="TotalCapacity" class="tabcontent">
+  <h3 id="totalcapacity_message"></h3>
+  
+</div>
+
+
+
+
+
+   
+</body>
+</html> 
