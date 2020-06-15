@@ -71,6 +71,23 @@
         document.getElementById("sendtoadmin").style.display = "none";
 
 
+        function cancel_ticket() {
+
+            var answer = prompt("Are you SURE you want to cancel your ticket ? Please NOTE that REFUND WILL NOT BE PROCESSED if booking is cancelled within 5 hours of departure  ", "TYPE YES TO CANCEL, NO TO ABORT");
+            if (answer == "NO") {
+                txt = "User cancelled the prompt.";
+            } else if (answer == "YES") {
+               localStorage.removeItem("booking_id_passenger")
+               localStorage.removeItem("name_booked_passenger")
+               localStorage.removeItem("seats_count_passenger")
+               localStorage.removeItem("seats_booked_passenger")
+               localStorage.removeItem("destination_passenger")
+               localStorage.removeItem("price_passenger")
+            }
+
+        }
+
+
         function openCity(evt, cityName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
@@ -92,12 +109,12 @@
             // document.getElementById("passengers_message_password").innerHTML="Password : "+localStorage.getItem("password_passenger")
             // document.getElementById("passengers_message_OTPpassword").innerHTML="Last generated OTP : "+localStorage.getItem("OTP_for_login_passenger")
 
-            document.getElementById("passenger_book_id").innerHTML="Booking ID : "+localStorage.getItem("booking_id_passenger")
-            document.getElementById("passenger_book_name").innerHTML="Booking Name : "+localStorage.getItem("name_booked_passenger")
-            document.getElementById("passengers_no_of_seats").innerHTML="No of Seats Booked : "+localStorage.getItem("seats_count_passenger")
-            document.getElementById("passengers_seats_list").innerHTML="Seats : "+localStorage.getItem("seats_booked_passenger")
-            document.getElementById("passengers_destination").innerHTML="Destination : "+localStorage.getItem("destination_passenger")
-            document.getElementById("passengers_price").innerHTML="Total Price : "+localStorage.getItem("price_passenger")
+            document.getElementById("passenger_book_id").innerHTML = "Booking ID : " + localStorage.getItem("booking_id_passenger")
+            document.getElementById("passenger_book_name").innerHTML = "Booking Name : " + localStorage.getItem("name_booked_passenger")
+            document.getElementById("passengers_no_of_seats").innerHTML = "No of Seats Booked : " + localStorage.getItem("seats_count_passenger")
+            document.getElementById("passengers_seats_list").innerHTML = "Seats : " + localStorage.getItem("seats_booked_passenger")
+            document.getElementById("passengers_destination").innerHTML = "Destination : " + localStorage.getItem("destination_passenger")
+            document.getElementById("passengers_price").innerHTML = "Total Price : " + localStorage.getItem("price_passenger")
 
 
 
@@ -112,7 +129,7 @@
 
             // document.getElementById("admins_message").innerHTML=localStorage.getItem("message_admin")
 
-        }   
+        }
 
     </script>
 </head>
@@ -145,6 +162,8 @@
         <h3 id="passengers_destination"></h3>
         <h3 id="passengers_price"></h3>
 
+        <button onclick="cancel_ticket()">CANCEL BOOKING</button>
+
 
 
 
@@ -153,9 +172,9 @@
 
     </div>
 
-    
 
-    
+
+
 
 
 
