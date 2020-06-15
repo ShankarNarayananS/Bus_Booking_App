@@ -60,7 +60,7 @@ function passenger_login() {
 
     if (p_name==localStorage.getItem("user_name_passenger") && (p_password==localStorage.getItem("password_passenger") || p_password==localStorage.getItem("OTP_for_login_passenger"))) {
 
-        window.open("./book_ticket.html")
+        window.open("./dashboard_passenger.html")
 
 
     }
