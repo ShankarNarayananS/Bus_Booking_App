@@ -82,6 +82,8 @@
                localStorage.removeItem("seats_count_passenger")
                localStorage.removeItem("seats_booked_passenger")
                localStorage.removeItem("destination_passenger")
+               localStorage.removeItem("time_passenger")
+               
                localStorage.removeItem("price_passenger")
             }
 
@@ -114,6 +116,7 @@
             document.getElementById("passengers_no_of_seats").innerHTML = "No of Seats Booked : " + localStorage.getItem("seats_count_passenger")
             document.getElementById("passengers_seats_list").innerHTML = "Seats : " + localStorage.getItem("seats_booked_passenger")
             document.getElementById("passengers_destination").innerHTML = "Destination : " + localStorage.getItem("destination_passenger")
+            document.getElementById("passengers_time").innerHTML = "Departure Time : " + localStorage.getItem("time_passenger")
             document.getElementById("passengers_price").innerHTML = "Total Price : " + localStorage.getItem("price_passenger")
 
 
@@ -160,6 +163,7 @@
         <h3 id="passengers_no_of_seats"></h3>
         <h3 id="passengers_seats_list"></h3>
         <h3 id="passengers_destination"></h3>
+        <h3 id="passengers_time"></h3>
         <h3 id="passengers_price"></h3>
 
         <button onclick="cancel_ticket()">CANCEL BOOKING</button>

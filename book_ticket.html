@@ -32,7 +32,7 @@
 
 <body onload="onLoaderFunc()">
     <script src='./jquery.min.js'></script>
-    
+
     <script>
         (function () {
             if (typeof _bsa !== 'undefined' && _bsa) {
@@ -104,7 +104,7 @@
                         <input placeholder="eg.John" type="text" id="Username" required>
                     </div>
                     <div class="agileits-right">
-                        <label> Number of Seats
+                        <label> No of Seats
                             <span>*</span>
                         </label>
                         <input placeholder="eg.3" type="number" id="Numseats" required min="1" max="10">
@@ -115,6 +115,19 @@
 
                         </label>
                         <input placeholder="eg.MADURAI" type="text" id="Destination" required>
+                    </div>
+
+                    <div class="agileits-left">
+                        <label> TIME
+                            <span>*</span>
+
+                        </label>
+                        <select id="Time" name="cars">
+                            <option value="5PM">5 PM</option>
+                            <option value="7PM">7 PM</option>
+                            <option value="9PM">9 PM</option>
+                            <option value="10PM">10 PM</option>
+                        </select>
                     </div>
                 </div>
                 <button onclick="takeData()">Start Selecting</button>
@@ -307,6 +320,7 @@
                         <th>Number of Seats</th>
                         <th>Seats</th>
                         <th>Destination</th>
+                        <th>Departure Time</th>
                         <th>Total Price</th>
                     </tr>
                     <tr>
@@ -321,6 +335,9 @@
                         </td>
                         <td>
                             <textarea id="DestinationDisplay"></textarea>
+                        </td>
+                        <td>
+                            <textarea id="DepartureTimeDisplay"></textarea>
                         </td>
                         <td>
                             <textarea id="PriceDisplay"></textarea>
@@ -367,6 +384,8 @@
                 var allSeatsVals = [];
                 var allDestinationVals = [];
                 var allPriceVals = [];
+                var allTimeVals = [];
+
 
                 //Storing in Array
                 allNameVals.push($("#Username").val());
@@ -382,43 +401,49 @@
 
                 allPriceVals.push("Rs " + price);
 
+                allTimeVals.push(document.getElementById("Time").value)
+
                 //Displaying 
                 $('#nameDisplay').val(allNameVals);
                 $('#NumberDisplay').val(allNumberVals);
                 $('#seatsDisplay').val(allSeatsVals);
                 $('#DestinationDisplay').val(allDestinationVals);
                 $('#PriceDisplay').val(allPriceVals);
+                $('#DepartureTimeDisplay').val(allTimeVals);
+
 
 
                 localStorage.setItem("name_booked_passenger", JSON.stringify(allNameVals))
-            localStorage.setItem("seats_booked_passenger", JSON.stringify(allSeatsVals))
-            localStorage.setItem("seats_count_passenger", JSON.stringify(allNumberVals))
+                localStorage.setItem("seats_booked_passenger", JSON.stringify(allSeatsVals))
+                localStorage.setItem("seats_count_passenger", JSON.stringify(allNumberVals))
 
-            localStorage.setItem("destination_passenger", JSON.stringify(allDestinationVals))
-            localStorage.setItem("price_passenger", JSON.stringify(allPriceVals))
+                localStorage.setItem("destination_passenger", JSON.stringify(allDestinationVals))
+                localStorage.setItem("time_passenger", JSON.stringify(allTimeVals))
 
-            function generateOTP() {
+                localStorage.setItem("price_passenger", JSON.stringify(allPriceVals))
 
-                // Declare a string variable  
-                // which stores all string 
-                var string = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                let OTP = '';
+                function generateOTP() {
 
-                // Find the length of string 
-                var len = string.length;
-                for (let i = 0; i < 6; i++) {
-                    OTP += string[Math.floor(Math.random() * len)];
+                    // Declare a string variable  
+                    // which stores all string 
+                    var string = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                    let OTP = '';
+
+                    // Find the length of string 
+                    var len = string.length;
+                    for (let i = 0; i < 6; i++) {
+                        OTP += string[Math.floor(Math.random() * len)];
+                    }
+                    return OTP;
                 }
-                return OTP;
-            }
 
-            var OTP_for_booking_passenger=generateOTP();
+                var OTP_for_booking_passenger = generateOTP();
 
 
-            localStorage.setItem("booking_id_passenger", OTP_for_booking_passenger)
+                localStorage.setItem("booking_id_passenger", OTP_for_booking_passenger)
 
 
-               
+
 
 
 
@@ -435,7 +460,7 @@
         function confirm_details_proceed() {
 
 
-            
+
             window.open("./dashboard_passenger.html")
 
 
